@@ -15,14 +15,14 @@ fn main() {
     // }
     let config =
     Commandline::new(&args).unwrap_or_else(|err|{
-        println!("Problem parsing arguments: {}", err);
+        eprintln!("Problem parsing arguments: {}", err);
         process::exit(1);
     });
     // println!("Program name {}",directory);
     println!("Searching for {}",config.query);
     println!("In file {}",config.filename);
     if let Err(a) = minigrep::run(config){
-        print!("Application error \n{}",a);
+        eprint!("Application error \n{}",a);
         process::exit(1);
     }
 }
